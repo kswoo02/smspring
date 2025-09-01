@@ -39,23 +39,23 @@
     </li>
 </ul>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="<c:url value="/"/>">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Cust</a>
+                <a class="nav-link" href="<c:url value="/cust"/>">Cust</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Item</a>
+                <a class="nav-link" href="<c:url value="/item"/>">Item</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<c:url value="/map"/> ">Map</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Chart</a>
+                <a class="nav-link" href="<c:url value="/chart"/>">Chart</a>
             </li>
         </ul>
     </div>
