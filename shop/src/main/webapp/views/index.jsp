@@ -8,9 +8,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7471dd3df8333f9a02c45456880ad079"></script>
+
     <style>
         .fakeimg {
             height: 200px;
@@ -46,16 +48,16 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Cust</a>
+                <a class="nav-link" href="/cust">Cust</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Item</a>
+                <a class="nav-link" href="/item">Item</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<c:url value="/map"/>">Map</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Chart</a>
+                <a class="nav-link" href="/chart">Chart</a>
             </li>
         </ul>
     </div>
