@@ -46,7 +46,7 @@
 
       // Infowindow
       let iwContent = '<p>'+title+'</p>';
-      iwContent += '<img src="/img/'+imgName+'" style="width:70px;">';
+      iwContent += '<img src="<c:url value="/img/'+imgName+'"/> " style="width:80px;">';
       let infowindow = new kakao.maps.InfoWindow({
         content : iwContent
       });
