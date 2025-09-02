@@ -10,16 +10,19 @@
 <script>
     let map1 = {
         init:function(){
-            let mapContainer = document.getElementById('map1');
+            // 지도 생성하기
+            let mapContainer = document.getElementById('map1'); // 지도를 표시할 div
             let mapOption = {
-                center: new kakao.maps.LatLng(36.800209, 127.074968),
-                level: 7
+                center: new kakao.maps.LatLng(36.800209, 127.074968), // 표시할 지도의 중심좌표
+                level: 7 // 지도 확대 레벨
             }
-            let map = new kakao.maps.Map(mapContainer, mapOption);
+            let map = new kakao.maps.Map(mapContainer, mapOption); // 지도 옵션으로 지도를 생성
+
+            // 지도 정보 얻어오기 + 지도에 확대 축소 컨트롤 올리기
             let mapTypeControl = new kakao.maps.MapTypeControl();
             map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-            let zoomControl = new kakao.maps.ZoomControl();
-            map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+            let zoomControl = new kakao.maps.ZoomControl(); //
+            map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT); // 지도 타입 컨트롤을 표시
 
             // Marker 생성
             let markerPosition  = new kakao.maps.LatLng(36.800209, 127.074968);
@@ -28,7 +31,7 @@
                 map:map
             });
 
-            // Infowindow
+            // Infowindow 지도에 표시
             let iwContent = '<p>Info Window</p>';
             let infowindow = new kakao.maps.InfoWindow({
                 content : iwContent
