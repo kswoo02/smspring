@@ -7,6 +7,7 @@
     border: 2px solid blue;
   }
   #content{
+    margin-top: 83px;
     width:auto;
     height:400px;
     border: 2px solid red;
@@ -21,14 +22,17 @@
       // 37.538453, 127.053110
       $('#sbtn').click(()=>{
         this.makeMap(37.538453, 127.053110, '남산', 's1.jpg', 100);
+        $('#content').html('서울');
       });
       // 35.170594, 129.175159
       $('#bbtn').click(()=>{
         this.makeMap(35.170594, 129.175159, '해운대', 's2.jpg', 200);
+        $('#content').html('부산');
       });
       // 33.250645, 126.414800
       $('#jbtn').click(()=>{
         this.makeMap(33.250645, 126.414800, '중문', 's3.jpg', 300);
+        $('#content').html('제주');
       });
     },
     makeMap:function(lat, lng, title, imgName, target){
@@ -68,7 +72,44 @@
         location.href='<c:url value="/cust/get"/> '
       });
 
-    }
+      this.makeMarkers(map, target);
+
+    },
+    makeMarkers:function(map, target){
+      let datas = [];
+      if(target == 100){
+        datas = [
+          {lat:37.564472, lng:126.990841, title:'순대국1', img:'ss1.jpg', target:101},
+          {lat:37.544472, lng:126.970841, title:'순대국2', img:'ss2.jpg', target:102},
+          {lat:37.564472, lng:126.970841, title:'순대국3', img:'ss3.jpg', target:103},
+          {lat:37.565472, lng:126.980841, title:'순대국4', img:'ss4.jpg', target:104},
+          {lat:37.563472, lng:126.974841, title:'순대국5', img:'ss5.jpg', target:105},
+          {lat:37.565472, lng:126.972841, title:'순대국6', img:'ss6.jpg', target:106},
+          {lat:37.566472, lng:126.971841, title:'순대국7', img:'ss7.jpg', target:107}
+        ];
+      }else if(target == 200){
+        datas = [
+          {lat:35.176109, lng:129.165474, title:'순대국1', img:'ss1.jpg', target:201},
+          {lat:35.171109, lng:129.174474, title:'순대국2', img:'ss2.jpg', target:202},
+          {lat:35.179109, lng:129.172474, title:'순대국3', img:'ss3.jpg', target:203},
+          {lat:35.173109, lng:129.166474, title:'순대국4', img:'ss4.jpg', target:204}
+        ];
+      }
+      let imgSrc1 = 'https://t1.daumcdn.net/localimg/localimages/07/2012/img/marker_p.png';
+
+      $(datas).each((index,item)=>{
+        let imgSize = new kakao.maps.Size(30,30);
+        let markerImg = new kakao.maps.MarkerImage(imgSrc1, imgSize);
+        let markerPosition = new kakao.maps.LatLng(item.lat, item.lng);
+        let marker = new kakao.maps.Marker({
+          image: markerImg,
+          map:map,
+          position: markerPosition
+        });
+      });
+
+
+    } // end makeMarkers
   }
 
   $(function(){
