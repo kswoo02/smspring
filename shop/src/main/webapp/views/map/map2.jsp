@@ -6,6 +6,12 @@
     height:400px;
     border: 2px solid blue;
   }
+  #content{
+    width:auto;
+    height:400px;
+    border: 2px solid red;
+    overflow: auto;
+  }
 </style>
 <script>
   let map2={
@@ -70,9 +76,18 @@
   })
 </script>
 <div class="col-sm-10">
-  <h2>Map2</h2>
-  <button id="sbtn" class="btn btn-primary">Seoul</button>
-  <button id="bbtn" class="btn btn-primary">Busan</button>
-  <button id="jbtn" class="btn btn-primary">Jeju</button>
-  <div id="map"></div>
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Map2</h2>
+      <button id="sbtn" class="btn btn-primary">Seoul</button>
+      <button id="bbtn" class="btn btn-primary">Busan</button>
+      <button id="jbtn" class="btn btn-primary">Jeju</button>
+      <div id="map"></div>
+    </div>
+    <div class="col-sm-4">
+      <div id="content"></div>
+    </div>
+  </div>
+
+
 </div>
