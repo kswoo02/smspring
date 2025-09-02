@@ -22,17 +22,14 @@
       // 37.538453, 127.053110
       $('#sbtn').click(()=>{
         this.makeMap(37.538453, 127.053110, '남산', 's1.jpg', 100);
-        $('#content').html('서울');
       });
       // 35.170594, 129.175159
       $('#bbtn').click(()=>{
         this.makeMap(35.170594, 129.175159, '해운대', 's2.jpg', 200);
-        $('#content').html('부산');
       });
       // 33.250645, 126.414800
       $('#jbtn').click(()=>{
         this.makeMap(33.250645, 126.414800, '중문', 's3.jpg', 300);
-        $('#content').html('제주');
       });
     },
     makeMap:function(lat, lng, title, imgName, target){
@@ -94,12 +91,22 @@
           {lat:35.179109, lng:129.172474, title:'순대국3', img:'ss3.jpg', target:203},
           {lat:35.173109, lng:129.166474, title:'순대국4', img:'ss4.jpg', target:204}
         ];
+      }else if(target == 300){
+        datas = [
+          {lat:33.251645, lng:126.415800, title:'순대국1', img:'ss1.jpg', target:301},
+          {lat:33.260645, lng:126.411800, title:'순대국2', img:'ss2.jpg', target:302},
+          {lat:33.258645, lng:126.420800, title:'순대국3', img:'ss3.jpg', target:303},
+          {lat:33.261645, lng:126.415000, title:'순대국4', img:'ss4.jpg', target:304}
+        ];
       }
       let imgSrc1 = 'https://t1.daumcdn.net/localimg/localimages/07/2012/img/marker_p.png';
       let imgSrc2 = '<c:url value="/img/down.png"/> ';
+
+      let result = '';
+
       $(datas).each((index,item)=>{
         let imgSize = new kakao.maps.Size(30,30);
-        let markerImg = new kakao.maps.MarkerImage(imgSrc2, imgSize);
+        let markerImg = new kakao.maps.MarkerImage(imgSrc1, imgSize);
         let markerPosition = new kakao.maps.LatLng(item.lat, item.lng);
         let marker = new kakao.maps.Marker({
           image: markerImg,
@@ -120,9 +127,18 @@
         kakao.maps.event.addListener(marker, 'click', function() {
           location.href = '<c:url value="/map/go?target='+item.target+'"/>';
         });
+        // Make Content List
+        result += '<p>';
+        result += '<a href="<c:url value="/map/go?target='+item.target+'"/>">';
+        result += '<img width="20px" src="<c:url value="/img/'+item.img+'"/> ">';
+        result += item.target+' '+item.title;
+        result += '</a>';
+        result += '</p>';
 
-      });
 
+      });  // end for
+
+      $('#content').html(result);
 
     } // end makeMarkers
   }
