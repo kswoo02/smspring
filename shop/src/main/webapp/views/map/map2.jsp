@@ -96,16 +96,31 @@
         ];
       }
       let imgSrc1 = 'https://t1.daumcdn.net/localimg/localimages/07/2012/img/marker_p.png';
-
+      let imgSrc2 = '<c:url value="/img/down.png"/> ';
       $(datas).each((index,item)=>{
         let imgSize = new kakao.maps.Size(30,30);
-        let markerImg = new kakao.maps.MarkerImage(imgSrc1, imgSize);
+        let markerImg = new kakao.maps.MarkerImage(imgSrc2, imgSize);
         let markerPosition = new kakao.maps.LatLng(item.lat, item.lng);
         let marker = new kakao.maps.Marker({
           image: markerImg,
           map:map,
           position: markerPosition
         });
+        let iwContent = '<p>'+item.title+'</p>';
+        iwContent += '<img style="width:80px;" src="<c:url value="/img/'+item.img+'"/> ">';
+        let infowindow = new kakao.maps.InfoWindow({
+          content : iwContent,
+        });
+        kakao.maps.event.addListener(marker, 'mouseover', function() {
+          infowindow.open(map, marker);
+        });
+        kakao.maps.event.addListener(marker, 'mouseout', function() {
+          infowindow.close();
+        });
+        kakao.maps.event.addListener(marker, 'click', function() {
+          location.href = '<c:url value="/map/go?target='+item.target+'"/>';
+        });
+
       });
 
 
