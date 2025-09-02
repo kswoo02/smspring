@@ -36,6 +36,10 @@ public class MarkerService implements SmService<Marker, Integer> {
         return markerRepository.selectAll();
     }
 
+    public List<Marker> findByLoc(int loc) throws Exception {
+        return markerRepository.findByLoc(loc);
+    }
+
     @Override
     public Marker get(Integer integer) throws Exception {
         return markerRepository.select(integer);

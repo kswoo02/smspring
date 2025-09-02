@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 @Mapper
 public interface MarkerRepository extends SmRepository<Marker, Integer> {
-
+    List<Marker> findByLoc(int loc);
 }
