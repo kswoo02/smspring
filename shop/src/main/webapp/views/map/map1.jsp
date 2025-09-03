@@ -9,8 +9,26 @@
 </style>
 <script>
   let map1 = {
+    addr:null,
     map:null,
     init:function(){
+      this.makeMap();
+      $('#btn1').click(()=>{
+        alert(this.addr);
+        this.addr ? this.getData(10) : alert('주소를 찾을수 없어요');
+      });
+      $('#btn2').click(()=>{
+        this.addr ? this.getData(20) : alert('주소를 찾을수 없어요');
+      });
+    },
+    getData:function(type){
+      $.ajax({
+        url:'/getaddrshop',
+        data:{addr:this.addr, type:type},
+        success:(result)=>{alert(result)}
+      });
+    },
+    makeMap:function(){
       let mapContainer = document.getElementById('map1');
       let mapOption = {
         center: new kakao.maps.LatLng(37.538453, 127.053110),
@@ -53,11 +71,7 @@
     addDisplay1:function(result, status){
       if (status === kakao.maps.services.Status.OK) {
         $('#addr1').html(result[0].address_name);
-        $.ajax({
-          url:'/getaddrshop',
-          data:{addr:result[0].address_name},
-          success:(result)=>{alert(result)}
-        });
+        this.addr = result[0].address_name;
       }
     },
     addDisplay2:function(result, status){
@@ -78,5 +92,7 @@
   <h2>Map1</h2>
   <h3 id="addr1"></h3>
   <h3 id="addr2"></h3>
+  <button id="btn1" class="btn btn-primary">병원</button>
+  <button id="btn2" class="btn btn-primary">편의점</button>
   <div id="map1"></div>
 </div>

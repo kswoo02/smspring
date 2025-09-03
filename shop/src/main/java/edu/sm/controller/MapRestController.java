@@ -16,8 +16,10 @@ import java.util.List;
 public class MapRestController {
     final MarkerService markerService;
     @RequestMapping("/getaddrshop")
-    public Object getaddrshop(@RequestParam("addr") String addr) throws Exception {
-        log.info(addr);
+    public Object getaddrshop(@RequestParam("addr") String addr, @RequestParam("type") int type) throws Exception {
+        log.info(addr+" : "+type);
+        // 해당 주소로 데이터 베이스에서 정보를 조회 한다.
+        // List 담아서 리턴 한다.
         return "ok";
     }
     @RequestMapping("/getmarkers")
