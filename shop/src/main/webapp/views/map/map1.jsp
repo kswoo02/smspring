@@ -13,7 +13,7 @@
     init:function(){
       let mapContainer = document.getElementById('map1');
       let mapOption = {
-        center: new kakao.maps.LatLng(36.900209, 127.974968),
+        center: new kakao.maps.LatLng(37.538453, 127.053110),
         level: 5
       }
       this.map = new kakao.maps.Map(mapContainer, mapOption);
@@ -43,7 +43,7 @@
       });
       this.map.panTo(locPosition);
 
-      var geocoder = new kakao.maps.services.Geocoder();
+      let geocoder = new kakao.maps.services.Geocoder();
       // 간단 주소 호출
       geocoder.coord2RegionCode(locPosition.getLng(), locPosition.getLat(), this.addDisplay1);
       // 상세 주소 호출
@@ -53,6 +53,11 @@
     addDisplay1:function(result, status){
       if (status === kakao.maps.services.Status.OK) {
         $('#addr1').html(result[0].address_name);
+        $.ajax({
+          url:'/getaddrshop',
+          data:{addr:result[0].address_name},
+          success:(result)=>{alert(result)}
+        });
       }
     },
     addDisplay2:function(result, status){
