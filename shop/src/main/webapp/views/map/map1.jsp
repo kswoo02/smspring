@@ -9,43 +9,39 @@
 </style>
 <script>
   let map1 = {
+    map:null,
     init:function(){
       let mapContainer = document.getElementById('map1');
       let mapOption = {
-        center: new kakao.maps.LatLng(36.800209, 127.074968),
-        level: 7
+        center: new kakao.maps.LatLng(36.900209, 127.974968),
+        level: 5
       }
-      let map = new kakao.maps.Map(mapContainer, mapOption);
+      this.map = new kakao.maps.Map(mapContainer, mapOption);
       let mapTypeControl = new kakao.maps.MapTypeControl();
-      map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+      this.map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
       let zoomControl = new kakao.maps.ZoomControl();
-      map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+      this.map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
-      // Marker 생성
-      let markerPosition  = new kakao.maps.LatLng(36.800209, 127.074968);
+      if (navigator.geolocation) {
+        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+        navigator.geolocation.getCurrentPosition((position)=>{
+          let lat = position.coords.latitude;  // 위도
+          let lng = position.coords.longitude; // 경도
+          let locPosition = new kakao.maps.LatLng(lat, lng);
+          this.goMap(locPosition);
+        });
+
+      }else{
+        alert('지원하지 않습니다.');
+      } // end if
+    },
+    goMap:function(locPosition){
+      // 마커를 생성합니다
       let marker = new kakao.maps.Marker({
-        position: markerPosition,
-        map:map
+        map: this.map,
+        position: locPosition
       });
-
-      // Infowindow
-      let iwContent = '<p>Info Window</p>';
-      let infowindow = new kakao.maps.InfoWindow({
-        content : iwContent
-      });
-
-      // Event
-      kakao.maps.event.addListener(marker, 'mouseover', function(){
-        infowindow.open(map, marker);
-      });
-      kakao.maps.event.addListener(marker, 'mouseout', function(){
-        infowindow.close();
-      });
-      kakao.maps.event.addListener(marker, 'click', function(){
-        location.href='<c:url value="/cust/get"/> '
-      });
-
-
+      this.map.panTo(locPosition);
     }
   }
   $(function(){
