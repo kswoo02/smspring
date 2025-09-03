@@ -5,6 +5,8 @@ server:
       charset: UTF-8
       force: true
 spring:
+#  config:
+#    import: optional:file:.env[.properties]  # .env import
   mvc:
     view:
       prefix: /views/
@@ -21,3 +23,13 @@ mybatis:
 logging:
   level:
     root: info
+app:
+  key: ${mykey}
+  url:
+    server-url: https://210.119.34.77:8443
+    chatbot: https://3vd0tljt1i.apigw.ntruss.com/custom/v1/16309/fc8085c312a614ef5f60fb796f3f9996ba5c6d29bb250a5437ba11bafc58f0bf
+  dir:
+    imgdir: file:///c:/springsm/imgs/
+    uploadimgdir: c:/springsm/imgs/
+    logdir: file:///c:/springsm/logs/
+    readlogdir: c:/springsm/logs/
