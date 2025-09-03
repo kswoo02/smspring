@@ -1,7 +1,7 @@
-package eud.sm.controller;
+package edu.sm.controller;
 
-import eud.sm.app.dto.Marker;
-import eud.sm.app.service.MarkerService;
+import edu.sm.app.dto.Marker;
+import edu.sm.app.service.MarkerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

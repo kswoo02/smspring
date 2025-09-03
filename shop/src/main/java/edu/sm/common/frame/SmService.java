@@ -1,4 +1,4 @@
-package eud.sm.common.frame;
+package edu.sm.common.frame;
 
 import org.springframework.transaction.annotation.Transactional;
 

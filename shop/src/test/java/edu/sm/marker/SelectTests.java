@@ -1,7 +1,7 @@
-package eud.sm.marker;
+package edu.sm.marker;
 
-import eud.sm.app.dto.Marker;
-import eud.sm.app.service.MarkerService;
+import edu.sm.app.dto.Marker;
+import edu.sm.app.service.MarkerService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

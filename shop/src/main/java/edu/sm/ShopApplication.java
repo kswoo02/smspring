@@ -1,13 +1,13 @@
-package eud.sm;
+package edu.sm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AdminApplication {
+public class ShopApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AdminApplication.class, args);
+        SpringApplication.run(ShopApplication.class, args);
     }
 
 }

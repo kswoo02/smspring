@@ -1,13 +1,10 @@
-package eud.sm.app.service;
+package edu.sm.app.service;
 
-import eud.sm.app.dto.Marker;
-import eud.sm.app.repository.MarkerRepository;
-import eud.sm.common.frame.SmService;
+import edu.sm.app.dto.Marker;
+import edu.sm.app.repository.MarkerRepository;
+import edu.sm.common.frame.SmService;
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 @Service

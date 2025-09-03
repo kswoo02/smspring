@@ -1,4 +1,4 @@
-package eud.sm.app.dto;
+package edu.sm.app.dto;
 import lombok.*;
 
 @AllArgsConstructor

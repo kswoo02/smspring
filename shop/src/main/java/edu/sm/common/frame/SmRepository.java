@@ -1,4 +1,4 @@
-package eud.sm.common.frame;
+package edu.sm.common.frame;
 
 import java.util.List;
 
