@@ -57,7 +57,7 @@
     },
     addDisplay2:function(result, status){
       if (status === kakao.maps.services.Status.OK) {
-        var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+        var detailAddr = result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
         detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
         $('#addr2').html(detailAddr);
       }
