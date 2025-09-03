@@ -42,6 +42,23 @@
         position: locPosition
       });
       this.map.panTo(locPosition);
+
+      var geocoder = new kakao.maps.services.Geocoder();
+      geocoder.coord2RegionCode(locPosition.getLng(), locPosition.getLat(), this.addDisplay1);
+      geocoder.coord2Address(locPosition.getLng(), locPosition.getLat(), this.addDisplay2);
+
+    },
+    addDisplay1:function(result, status){
+      if (status === kakao.maps.services.Status.OK) {
+        $('#addr1').html(result[0].address_name);
+      }
+    },
+    addDisplay2:function(result, status){
+      if (status === kakao.maps.services.Status.OK) {
+        var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
+        detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+        $('#addr2').html(detailAddr);
+      }
     }
   }
   $(function(){
@@ -52,5 +69,7 @@
 
 <div class="col-sm-10">
   <h2>Map1</h2>
+  <h3 id="addr1"></h3>
+  <h3 id="addr2"></h3>
   <div id="map1"></div>
 </div>
