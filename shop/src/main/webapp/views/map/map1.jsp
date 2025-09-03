@@ -14,21 +14,14 @@
     init:function(){
       this.makeMap();
       $('#btn1').click(()=>{
-        alert(this.addr);
-        this.addr ? this.getData(10) : alert('주소를 찾을수 없어요');
+        this.getData(10);
       });
       $('#btn2').click(()=>{
         this.addr ? this.getData(20) : alert('주소를 찾을수 없어요');
       });
     },
-    getData:function(type){
-      $.ajax({
-        url:'/getaddrshop',
-        data:{addr:this.addr, type:type},
-        success:(result)=>{alert(result)}
-      });
-    },
-    makeMap:function(){
+
+    makeMap: function(){
       let mapContainer = document.getElementById('map1');
       let mapOption = {
         center: new kakao.maps.LatLng(37.538453, 127.053110),
@@ -53,7 +46,7 @@
         alert('지원하지 않습니다.');
       } // end if
     },
-    goMap:function(locPosition){
+    goMap: function(locPosition){
       // 마커를 생성합니다
       let marker = new kakao.maps.Marker({
         map: this.map,
@@ -63,9 +56,9 @@
 
       let geocoder = new kakao.maps.services.Geocoder();
       // 간단 주소 호출
-      geocoder.coord2RegionCode(locPosition.getLng(), locPosition.getLat(), this.addDisplay1);
+      geocoder.coord2RegionCode(locPosition.getLng(), locPosition.getLat(), this.addDisplay1.bind(this));
       // 상세 주소 호출
-      geocoder.coord2Address(locPosition.getLng(), locPosition.getLat(), this.addDisplay2);
+      geocoder.coord2Address(locPosition.getLng(), locPosition.getLat(), this.addDisplay2.bind(this));
 
     },
     addDisplay1:function(result, status){
@@ -80,6 +73,14 @@
         detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
         $('#addr2').html(detailAddr);
       }
+    },
+    getData:function(type){
+
+      $.ajax({
+        url:'/getaddrshop',
+        data:{addr:this.addr, type:type},
+        success:(result)=>{alert(result)}
+      });
     }
   }
   $(function(){
