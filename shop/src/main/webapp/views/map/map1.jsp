@@ -44,7 +44,9 @@
       this.map.panTo(locPosition);
 
       var geocoder = new kakao.maps.services.Geocoder();
+      // 간단 주소 호출
       geocoder.coord2RegionCode(locPosition.getLng(), locPosition.getLat(), this.addDisplay1);
+      // 상세 주소 호출
       geocoder.coord2Address(locPosition.getLng(), locPosition.getLat(), this.addDisplay2);
 
     },
