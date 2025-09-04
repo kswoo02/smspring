@@ -25,8 +25,17 @@
       });
     },
     showMarker:function(result){
+      if(this.marker != null){
+        this.marker.setMap(null);
+      }
+
+      let imgSrc = '<c:url value="/img/auto.jpg"/> ';
+      let imgSize = new kakao.maps.Size(30,30);
+      let markerImg = new kakao.maps.MarkerImage(imgSrc, imgSize);
+
       let position = new kakao.maps.LatLng(result.lat, result.lng);
       this.marker = new kakao.maps.Marker({
+        image: markerImg,
         position:position
       });
       this.marker.setMap(this.map);

@@ -37,6 +37,7 @@ public class MapRestController {
         Random r = new Random();
         double lat = 36.800209 + r.nextDouble(0.005);
         double lng = 127.074968 + r.nextDouble(0.005);
+
         jsonObject.put("lat", lat);
         jsonObject.put("lng", lng);
         // {lat:xxxxx, lng:xxxxxx}
