@@ -2,15 +2,18 @@ package edu.sm.controller;
 
 import edu.sm.app.dto.Content;
 import edu.sm.app.dto.Marker;
+import edu.sm.app.dto.Search;
 import edu.sm.app.service.MarkerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.json.simple.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,10 +23,26 @@ public class MapRestController {
     @RequestMapping("/getaddrshop")
     public Object getaddrshop(@RequestParam("addr") String addr, @RequestParam("type") int type) throws Exception {
         log.info(addr+" : "+type);
+        String strs [] = addr.split(" ");
+        Search search = Search.builder().addr(strs[strs.length-1]).type(type).build();
         // 해당 주소로 데이터 베이스에서 정보를 조회 한다.
         // List 담아서 리턴 한다.
         return "ok";
     }
+
+    @RequestMapping("/getlatlng")
+    public Object getlatlng() throws Exception {
+        JSONObject jsonObject = new JSONObject();
+        //36.800209, 127.074968
+        Random r = new Random();
+        double lat = 36.800209 + r.nextDouble(0.005);
+        double lng = 127.074968 + r.nextDouble(0.001);
+        jsonObject.put("lat", lat);
+        jsonObject.put("lng", lng);
+        // {lat:xxxxx, lng:xxxxxx}
+        return jsonObject;
+    }
+
     @RequestMapping("/getmarkers")
     public Object getMarkers(@RequestParam("target") int target) throws Exception {
         List<Marker> list = markerService.findByLoc(target);

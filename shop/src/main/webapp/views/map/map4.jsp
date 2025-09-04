@@ -9,43 +9,45 @@
 </style>
 <script>
   let map1 = {
+    map:null,
+    marker:null,
     init:function(){
+      this.makeMap();
+      setInterval(this.getData, 3000);
+    },
+    getData:function(){
+      $.ajax({
+        url:'/getlatlng',
+        success:(result)=>{
+          map1.showMarker(result);
+        }
+      });
+    },
+    showMarker:function(result){
+      let position = new kakao.maps.LatLng(result.lat, result.lng);
+      this.marker = new kakao.maps.Marker({
+        position:position
+      });
+      this.marker.setMap(this.map);
+    },
+    makeMap:function(){
       let mapContainer = document.getElementById('map1');
       let mapOption = {
         center: new kakao.maps.LatLng(36.800209, 127.074968),
         level: 7
       }
-      let map = new kakao.maps.Map(mapContainer, mapOption);
+      this.map = new kakao.maps.Map(mapContainer, mapOption);
       let mapTypeControl = new kakao.maps.MapTypeControl();
-      map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+      this.map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
       let zoomControl = new kakao.maps.ZoomControl();
-      map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+      this.map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
       // Marker 생성
       let markerPosition  = new kakao.maps.LatLng(36.800209, 127.074968);
       let marker = new kakao.maps.Marker({
         position: markerPosition,
-        map:map
+        map:this.map
       });
-
-      // Infowindow
-      let iwContent = '<p>Info Window</p>';
-      let infowindow = new kakao.maps.InfoWindow({
-        content : iwContent
-      });
-
-      // Event
-      kakao.maps.event.addListener(marker, 'mouseover', function(){
-        infowindow.open(map, marker);
-      });
-      kakao.maps.event.addListener(marker, 'mouseout', function(){
-        infowindow.close();
-      });
-      kakao.maps.event.addListener(marker, 'click', function(){
-        location.href='<c:url value="/cust/get"/> '
-      });
-
-
     }
   }
   $(function(){
@@ -55,6 +57,6 @@
 
 
 <div class="col-sm-10">
-  <h2>Map1</h2>
+  <h2>Map4</h2>
   <div id="map1"></div>
 </div>
