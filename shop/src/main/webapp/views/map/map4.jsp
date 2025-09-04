@@ -11,15 +11,16 @@
   let map1 = {
     map:null,
     marker:null,
+
     init:function(){
       this.makeMap();
-      setInterval(this.getData, 3000);
+      setInterval(()=>{this.getData()}, 3000);
     },
     getData:function(){
       $.ajax({
         url:'/getlatlng',
         success:(result)=>{
-          map1.showMarker(result);
+          this.showMarker(result);
         }
       });
     },
@@ -34,7 +35,7 @@
       let mapContainer = document.getElementById('map1');
       let mapOption = {
         center: new kakao.maps.LatLng(36.800209, 127.074968),
-        level: 7
+        level: 5
       }
       this.map = new kakao.maps.Map(mapContainer, mapOption);
       let mapTypeControl = new kakao.maps.MapTypeControl();
