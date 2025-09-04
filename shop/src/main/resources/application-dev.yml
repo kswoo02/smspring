@@ -1,5 +1,10 @@
 server:
-  port: 80
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12     # src/main/resources에 p12 파일 복사
+    key-store-password: 111111
+    key-store-type: PKCS12  # 인증서 형식
   servlet:
     encoding:
       charset: UTF-8

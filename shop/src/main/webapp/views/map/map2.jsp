@@ -143,6 +143,4 @@
       <div id="content"></div>
     </div>
   </div>
-
-
 </div>
