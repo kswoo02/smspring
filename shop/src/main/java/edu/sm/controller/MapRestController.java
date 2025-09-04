@@ -29,6 +29,11 @@ public class MapRestController {
         // List 담아서 리턴 한다.
         return "ok";
     }
+    @RequestMapping("/iot")
+    public Object iot(@RequestParam("lat") double lat, @RequestParam("lng") double lng) throws Exception {
+        log.info(lat+" : "+lng);
+        return "ok";
+    }
 
     @RequestMapping("/getlatlng")
     public Object getlatlng() throws Exception {
