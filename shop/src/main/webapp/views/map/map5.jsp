@@ -14,6 +14,14 @@
         init: function(){
             this.makeMap();
             this.showMarkers();
+            this.displayFixedMarker();
+        },
+        displayFixedMarker: function() {
+            let markerPosition  = new kakao.maps.LatLng(36.800209, 127.074968);
+            let marker = new kakao.maps.Marker({
+                position: markerPosition
+            });
+            marker.setMap(this.map);
         },
         showMarkers:function (){
             let imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
@@ -21,30 +29,43 @@
             let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
             let positions = [
                 {
+                    id: 101,
+                    title: '선문대학교 성화학숙',
                     content: '<div>선문대학교 성화학숙</div>',
                     latlng: new kakao.maps.LatLng(36.795919, 127.069644)
                 },
                 {
+                    id: 102,
+                    title: '선문대학교 아산캠퍼스 원화관',
                     content: '<div>선문대학교 아산캠퍼스 원화관</div>',
                     latlng: new kakao.maps.LatLng(36.800022, 127.077196)
                 },
                 {
+                    id: 103,
+                    title: '지중해마을',
                     content: '<div>지중해마을</div>',
-                    latlng: new kakao.maps.LatLng(
-                        36.797473, 127.060479)
+                    latlng: new kakao.maps.LatLng(36.797473, 127.060479)
                 },
-
             ];
+
             for (let i = 0; i < positions.length; i ++) {
-                // 마커를 생성합니다
                 let marker = new kakao.maps.Marker({
-
-                    position: positions[i].latlng, // 마커를 표시할 위치
-                    title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                    image : markerImage // 마커 이미지
+                    map: this.map,
+                    position: positions[i].latlng,
+                    title : positions[i].title,
+                    image : markerImage
                 });
-                marker.setMap(this.map)
 
+                let infowindow = new kakao.maps.InfoWindow({
+                    content: positions[i].content
+                });
+
+                kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(this.map, marker, infowindow));
+                kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+
+                kakao.maps.event.addListener(marker, 'click', function() {
+                    location.href = '/map/detail?id=' + positions[i].id;
+                });
             }
         },
         makeMap:function(){
@@ -58,22 +79,28 @@
             this.map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
             let zoomControl = new kakao.maps.ZoomControl();
             this.map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
-            // Marker 생성
-            let markerPosition  = new kakao.maps.LatLng(36.800209, 127.074968);
-            let marker = new kakao.maps.Marker({
-                position: markerPosition,
-                map: this.map
-            });
         }
+    };
+
+    function makeOverListener(map, marker, infowindow) {
+        return function() {
+            infowindow.open(map, marker);
+        };
     }
+
+    function makeOutListener(infowindow) {
+        return function() {
+            infowindow.close();
+        };
+    }
+
 
     $(function(){
         map5.init()
-    })
+    });
 </script>
 
 <div class="col-sm-10">
-    <h2>Map5 커피숍 찾기</h2>
+    <h2>Map5</h2>
     <div id="map5"></div>
 </div>
