@@ -3,7 +3,7 @@ server:
   ssl:
     enabled: true
     key-store: classpath:keystore.p12
-    key-store-password: ${KEY_PWD}
+    key-store-password: ENC(idIWCdznEM3ggslDeTmLJw==)
     key-store-type: PKCS12
   servlet:
     encoding:
@@ -19,7 +19,8 @@ spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/shopdb?serverTimezone=Asia/Seoul
     username: smuser
-    password: ${DB_PWD}
+    password: ENC(idIWCdznEM3ggslDeTmLJw==)
+
 mybatis:
   type-aliases-package: edu.sm.app.dto
   mapper-locations: classpath:/mapper/*.xml
@@ -28,3 +29,20 @@ mybatis:
 logging:
   level:
     root: info
+
+# Application Config
+app:
+  key:
+    skey: ${MY_KEY}
+
+
+
+
+
+
+
+
+
+
+
+
