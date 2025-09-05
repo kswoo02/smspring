@@ -1,3 +1,7 @@
+
+# springboot 내장 서버 환경 설정
+# bootwar 실행시에만 적용이됨
+# war tomcat 실행 할때는 적용안되
 server:
   port: 8443
   ssl:
@@ -31,7 +35,7 @@ logging:
 # Application Config
 app:
   key:
-    skey: mykey
+    skey: ${MY_KEY}
 
 
 
