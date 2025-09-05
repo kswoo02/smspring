@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - SelectTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>SelectTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/edu.sm.marker.html">edu.sm.marker</a> &gt; SelectTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">2.507s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+<li>
+<a href="#">Standard error</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contextLoads()</td>
+<td class="success">2.507s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>14:01:14.162 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [edu.sm.marker.SelectTests]: SelectTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:01:14.440 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration edu.sm.ShopApplication for test class edu.sm.marker.SelectTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::      (v3.4.10-SNAPSHOT)
+
+2025-09-05T14:01:15.354+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Starting SelectTests using Java 17.0.15 with PID 32600 (started by tjsdn in C:\smspring\smspring\shop)
+2025-09-05T14:01:15.356+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : The following 1 profile is active: &quot;dev&quot;
+2025-09-05T14:01:17.164+09:00  INFO 32600 --- [    Test worker] ptablePropertiesBeanFactoryPostProcessor : Post-processing PropertySource instances
+2025-09-05T14:01:17.228+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2025-09-05T14:01:17.228+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource test [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2025-09-05T14:01:17.228+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Inlined Test Properties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2025-09-05T14:01:17.232+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2025-09-05T14:01:17.232+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource servletContextInitParams [org.springframework.web.context.support.ServletContextPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2025-09-05T14:01:17.233+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2025-09-05T14:01:17.233+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableSystemEnvironmentPropertySourceWrapper
+2025-09-05T14:01:17.233+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2025-09-05T14:01:17.233+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource env [me.paulschwarz.springdotenv.DotenvPropertySource] to EncryptablePropertySourceWrapper
+2025-09-05T14:01:17.233+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'file [.env]' via location 'optional:file:.env[.properties]' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2025-09-05T14:01:17.233+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [application-dev.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2025-09-05T14:01:17.233+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource Config resource 'class path resource [application.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2025-09-05T14:01:17.233+09:00  INFO 32600 --- [    Test worker] c.u.j.EncryptablePropertySourceConverter : Converting PropertySource applicationInfo [org.springframework.boot.ApplicationInfoPropertySource] to EncryptableMapPropertySourceWrapper
+2025-09-05T14:01:17.314+09:00  INFO 32600 --- [    Test worker] c.u.j.filter.DefaultLazyPropertyFilter   : Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2025-09-05T14:01:17.488+09:00  INFO 32600 --- [    Test worker] c.u.j.r.DefaultLazyPropertyResolver      : Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2025-09-05T14:01:17.493+09:00  INFO 32600 --- [    Test worker] c.u.j.d.DefaultLazyPropertyDetector      : Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2025-09-05T14:01:17.572+09:00  INFO 32600 --- [    Test worker] c.u.j.encryptor.DefaultLazyEncryptor     : Found Custom Encryptor Bean org.jasypt.encryption.pbe.PooledPBEStringEncryptor@47a7c93e with name: jasyptStringEncryptor
+2025-09-05T14:01:19.773+09:00  INFO 32600 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-09-05T14:01:21.324+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Started SelectTests in 6.601 seconds (process running for 8.689)
+2025-09-05T14:01:23.008+09:00  INFO 32600 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-09-05T14:01:23.693+09:00  INFO 32600 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@76c587ce
+2025-09-05T14:01:23.693+09:00  INFO 32600 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-09-05T14:01:23.819+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=101, title=순대국1, img=ss1.jpg, lat=37.5645, lng=0.0, loc=100)
+2025-09-05T14:01:23.819+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=102, title=순대국2, img=ss2.jpg, lat=37.5445, lng=0.0, loc=100)
+2025-09-05T14:01:23.819+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=103, title=순대국3, img=ss3.jpg, lat=37.5645, lng=0.0, loc=100)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=104, title=순대국4, img=ss4.jpg, lat=37.5655, lng=0.0, loc=100)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=105, title=순대국5, img=ss5.jpg, lat=37.5635, lng=0.0, loc=100)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=106, title=순대국6, img=ss6.jpg, lat=37.5655, lng=0.0, loc=100)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=107, title=순대국7, img=ss7.jpg, lat=37.5665, lng=0.0, loc=100)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=201, title=순대국1, img=ss1.jpg, lat=35.1761, lng=0.0, loc=200)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=202, title=순대국2, img=ss2.jpg, lat=35.1711, lng=0.0, loc=200)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=203, title=순대국3, img=ss3.jpg, lat=35.1791, lng=0.0, loc=200)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=204, title=순대국4, img=ss4.jpg, lat=35.1731, lng=0.0, loc=200)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=301, title=순대국1, img=ss1.jpg, lat=33.2516, lng=0.0, loc=300)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=302, title=순대국2, img=ss2.jpg, lat=33.2606, lng=0.0, loc=300)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=303, title=순대국3, img=ss3.jpg, lat=33.2586, lng=0.0, loc=300)
+2025-09-05T14:01:23.822+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=304, title=순대국4, img=ss4.jpg, lat=33.2616, lng=0.0, loc=300)
+2025-09-05T14:01:23.847+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=101, title=순대국1, img=ss1.jpg, lat=37.5645, lng=0.0, loc=100)
+2025-09-05T14:01:23.862+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=201, title=순대국1, img=ss1.jpg, lat=35.1761, lng=0.0, loc=200)
+2025-09-05T14:01:23.862+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=202, title=순대국2, img=ss2.jpg, lat=35.1711, lng=0.0, loc=200)
+2025-09-05T14:01:23.862+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=203, title=순대국3, img=ss3.jpg, lat=35.1791, lng=0.0, loc=200)
+2025-09-05T14:01:23.862+09:00  INFO 32600 --- [    Test worker] edu.sm.marker.SelectTests                : Marker(target=204, title=순대국4, img=ss4.jpg, lat=35.1731, lng=0.0, loc=200)
+</pre>
+</span>
+</div>
+<div class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14.3</a> at 2025. 9. 5. 오후 2:01:24</p>
+</div>
+</div>
+</body>
+</html>
