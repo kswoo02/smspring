@@ -20,6 +20,8 @@ import java.util.Random;
 @Slf4j
 public class MapRestController {
     final MarkerService markerService;
+    double lat;
+    double lng;
     @RequestMapping("/getaddrshop")
     public Object getaddrshop(@RequestParam("addr") String addr, @RequestParam("type") int type) throws Exception {
         log.info(addr+" : "+type);
@@ -32,19 +34,16 @@ public class MapRestController {
     @RequestMapping("/iot")
     public Object iot(@RequestParam("lat") double lat, @RequestParam("lng") double lng) throws Exception {
         log.info(lat+" : "+lng);
+        this.lat = lat;
+        this.lng = lng;
         return "ok";
     }
 
     @RequestMapping("/getlatlng")
     public Object getlatlng() throws Exception {
         JSONObject jsonObject = new JSONObject();
-        //36.800209, 127.074968
-        Random r = new Random();
-        double lat = 36.800209 + r.nextDouble(0.005);
-        double lng = 127.074968 + r.nextDouble(0.005);
-
-        jsonObject.put("lat", lat);
-        jsonObject.put("lng", lng);
+        jsonObject.put("lat", this.lat);
+        jsonObject.put("lng", this.lng);
         // {lat:xxxxx, lng:xxxxxx}
         return jsonObject;
     }
