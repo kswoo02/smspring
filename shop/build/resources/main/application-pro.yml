@@ -1,3 +1,8 @@
+# springboot 내장서버 환경 설정
+# bootwar 실행시에만 적용이 됨
+# war tomcat 실행시 적용안됨
+
+
 server:
   port: 8443
   ssl:
