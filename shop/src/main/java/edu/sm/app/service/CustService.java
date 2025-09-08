@@ -1,5 +1,7 @@
 package edu.sm.app.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import edu.sm.app.dto.Cust;
 import edu.sm.app.repository.CustRepository;
 import edu.sm.common.frame.SmService;
@@ -37,5 +39,9 @@ public class CustService implements SmService<Cust, String> {
     @Override
     public Cust get(String s) throws Exception {
         return custRepository.select(s);
+    }
+    public Page<Cust> getPage(int pageNo) throws Exception {
+        PageHelper.startPage(pageNo, 3); // 3: 한화면에 출력되는 개수
+        return custRepository.getpage();
     }
 }

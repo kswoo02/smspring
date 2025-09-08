@@ -16,7 +16,7 @@
     <tbody>
     <c:forEach var="c" items="${clist}">
       <tr>
-        <td><a href="/cust/detail?id=${c.custId}">${c.custId}</a></td>
+        <td>${c.custId}</td>
         <td>${c.custName}</td>
         <td>
           <fmt:parseDate value="${ c.custRegdate }"
