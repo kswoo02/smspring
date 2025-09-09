@@ -35,8 +35,8 @@ logging:
 # Application Config
 app:
   dir:
-    imgsdir: file:///C:/smspring/imgs/     # 화면 출력 용
-    uploadimgsdir: C:/smspring/imgs/    # 파일 Write 용
+    imgsdir: file:///C:/smspring/smspring/imgs/     # 화면 출력 용
+    uploadimgsdir: C:/smspring/smspring/imgs/    # 파일 Write 용
   key:
     skey: ${MY_KEY}
     algo: PBEWithMD5AndDES
