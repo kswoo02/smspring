@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Slf4j
-@RequestMapping("/item")
-public class ItemController {
+@RequestMapping("/product")
+public class ProductController {
 
-    String dir="item/";
+    String dir="product/";
 
     @RequestMapping("")
     public String main(Model model) {
