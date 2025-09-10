@@ -11,10 +11,15 @@
                 cust_name like concat('%',#{custName},'%')
             </if>
             <if test="startDate != null and !startDate.equals('')">
-                and cust_regdate &gt;= #{startDate}
+                 <!--and cust_regdate &gt;= #{startDate} -->
+                <![CDATA[
+                  and cust_regdate  >=  #{startDate}
+
+                 ]]>
             </if>
             <if test="endDate != null and !endDate.equals('')">
-                and date(cust_regdate) &lt;= #{endDate}
+                <!--and date(cust_regdate) &lt;= #{endDate} -->
+                <![CDATA[ and date(cust_regdate) <=  #{endDate} ]]>
             </if>
         </where>
     </select>
