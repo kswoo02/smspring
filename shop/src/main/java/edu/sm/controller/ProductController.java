@@ -59,4 +59,18 @@ public class ProductController {
         model.addAttribute("center", dir+"getpage");
         return "index";
     }
+    @RequestMapping("/updateimpl")
+    public String updateimpl(Model model, Product product) throws Exception {
+        productService.modify(product);
+        return "redirect:/product/detail?id="+product.getProductId();
+    }
+    @RequestMapping("/detail")
+    public String detail(Model model, @RequestParam("id") int id) throws Exception {
+        Product product = null;
+        product = productService.get(id);
+        model.addAttribute("p", product);
+        model.addAttribute("left", dir+"left");
+        model.addAttribute("center", dir+"detail");
+        return "index";
+    }
 }

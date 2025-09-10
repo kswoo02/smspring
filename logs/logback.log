@@ -1,0 +1,66 @@
+[2025-09-10 11:38:35:3985][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 44 mappings in 'requestMappingHandlerMapping'
+[2025-09-10 11:38:35:4107][restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /imgs/**] in 'resourceHandlerMapping'
+[2025-09-10 11:38:35:4233][restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+[2025-09-10 11:38:35:4285][restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+[2025-09-10 11:38:35:4778][https-jsse-nio-8443-exec-9] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2025-09-10 11:38:35:4778][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+[2025-09-10 11:38:35:4778][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+[2025-09-10 11:38:35:4778][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+[2025-09-10 11:38:35:4780][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@751e5268
+[2025-09-10 11:38:35:4780][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@739332b9
+[2025-09-10 11:38:35:4780][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+[2025-09-10 11:38:35:4780][https-jsse-nio-8443-exec-9] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+[2025-09-10 11:38:35:4806][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/cust", parameters={}
+[2025-09-10 11:38:35:4810][https-jsse-nio-8443-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to edu.sm.controller.CustController#main(Model)
+[2025-09-10 11:38:35:4833][https-jsse-nio-8443-exec-9] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+[2025-09-10 11:38:35:4834][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.view.JstlView - View name [index], model {center=cust/center, left=cust/left}
+[2025-09-10 11:38:35:4839][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.view.JstlView - Forwarding to [/views/index.jsp]
+[2025-09-10 11:38:36:5685][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+[2025-09-10 11:38:37:6269][https-jsse-nio-8443-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/product", parameters={}
+[2025-09-10 11:38:37:6269][https-jsse-nio-8443-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to edu.sm.controller.ProductController#main(Model)
+[2025-09-10 11:38:37:6270][https-jsse-nio-8443-exec-4] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+[2025-09-10 11:38:37:6270][https-jsse-nio-8443-exec-4] DEBUG o.s.web.servlet.view.JstlView - View name [index], model {center=product/center, left=product/left}
+[2025-09-10 11:38:37:6270][https-jsse-nio-8443-exec-4] DEBUG o.s.web.servlet.view.JstlView - Forwarding to [/views/index.jsp]
+[2025-09-10 11:38:37:6516][https-jsse-nio-8443-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+[2025-09-10 11:38:38:7195][https-jsse-nio-8443-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/", parameters={}
+[2025-09-10 11:38:38:7196][https-jsse-nio-8443-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to edu.sm.controller.MainController#main(Model)
+[2025-09-10 11:38:38:7197][https-jsse-nio-8443-exec-1] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+[2025-09-10 11:38:38:7197][https-jsse-nio-8443-exec-1] DEBUG o.s.web.servlet.view.JstlView - View name [index], model {}
+[2025-09-10 11:38:38:7197][https-jsse-nio-8443-exec-1] DEBUG o.s.web.servlet.view.JstlView - Forwarding to [/views/index.jsp]
+[2025-09-10 11:38:38:7300][https-jsse-nio-8443-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+[2025-09-10 13:07:39:5348643][https-jsse-nio-8443-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/product", parameters={}
+[2025-09-10 13:07:39:5348672][https-jsse-nio-8443-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to edu.sm.controller.ProductController#main(Model)
+[2025-09-10 13:07:39:5348732][https-jsse-nio-8443-exec-5] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+[2025-09-10 13:07:39:5348732][https-jsse-nio-8443-exec-5] DEBUG o.s.web.servlet.view.JstlView - View name [index], model {center=product/center, left=product/left}
+[2025-09-10 13:07:39:5348742][https-jsse-nio-8443-exec-5] DEBUG o.s.web.servlet.view.JstlView - Forwarding to [/views/index.jsp]
+[2025-09-10 13:07:40:5348975][https-jsse-nio-8443-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+[2025-09-10 13:07:42:5351146][https-jsse-nio-8443-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/product/get", parameters={}
+[2025-09-10 13:07:42:5351146][https-jsse-nio-8443-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to edu.sm.controller.ProductController#get(Model)
+[2025-09-10 13:07:43:5351996][https-jsse-nio-8443-exec-6] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+[2025-09-10 13:07:43:5352006][https-jsse-nio-8443-exec-6] DEBUG o.s.web.servlet.view.JstlView - View name [index], model {plist=[Product(productId=1000, productName=바지11, productPrice=10000, discountRate=1.0, productImg=face2.jpg, productRegdate=2025-09-09 13:34:38.0, productUpdate=2025-09-10 10:41:03.0, cateId=10, cateName=하의, productImgFile=null), Product(productId=1001, productName=바지2, productPrice=20000, discountRate=1.0, productImg=p2.jpg, productRegdate=2025-09-09 14:12:10.0, productUpdate=2025-09-09 14:12:10.0, cateId=10, cateName=하의, productImgFile=null), Product(productId=1002, productName=바지3, productPrice=30000, discountRate=1.0, productImg=p3.jpg, productRegdate=2025-09-09 14:12:26.0, productUpdate=2025-09-09 14:12:26.0, cateId=10, cateName=하의, productImgFile=null), Product(productId=1003, productName=셔츠1, productPrice=30000, discountRate=1.0, productImg=sh1.jpg, productRegdate=2025-09-09 14:12:52.0, productUpdate=2025-09-09 14:12:52.0, cateId=20, cateName=상의, productImgFile=null), Product(productId=1004, productName=셔츠2, productPrice=10000, discountRate=1.0, productImg=sh2.jpg, productRegdate=2025-09-09 14:13:09.0, productUpdate=2025-09-09 14:13:09.0, cateId=20, cateName=상의, productImgFile=null)], left=product/left, center=product/get}
+[2025-09-10 13:07:43:5352007][https-jsse-nio-8443-exec-6] DEBUG o.s.web.servlet.view.JstlView - Forwarding to [/views/index.jsp]
+[2025-09-10 13:07:43:5352337][https-jsse-nio-8443-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+[2025-09-10 13:07:43:5352384][https-jsse-nio-8443-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/imgs/face2.jpg", parameters={}
+[2025-09-10 13:07:43:5352384][https-jsse-nio-8443-exec-1] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [URL [file:/C:/smspring/imgs/]]
+[2025-09-10 13:07:43:5352435][https-jsse-nio-8443-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+[2025-09-10 13:07:43:5352440][https-jsse-nio-8443-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/imgs/p2.jpg", parameters={}
+[2025-09-10 13:07:43:5352442][https-jsse-nio-8443-exec-1] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [URL [file:/C:/smspring/imgs/]]
+[2025-09-10 13:07:43:5352446][https-jsse-nio-8443-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+[2025-09-10 13:07:43:5352450][https-jsse-nio-8443-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/imgs/p3.jpg", parameters={}
+[2025-09-10 13:07:43:5352451][https-jsse-nio-8443-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/imgs/sh1.jpg", parameters={}
+[2025-09-10 13:07:43:5352451][https-jsse-nio-8443-exec-10] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [URL [file:/C:/smspring/imgs/]]
+[2025-09-10 13:07:43:5352452][https-jsse-nio-8443-exec-2] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [URL [file:/C:/smspring/imgs/]]
+[2025-09-10 13:07:43:5352455][https-jsse-nio-8443-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+[2025-09-10 13:07:43:5352455][https-jsse-nio-8443-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+[2025-09-10 13:07:43:5352459][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/imgs/sh2.jpg", parameters={}
+[2025-09-10 13:07:43:5352459][https-jsse-nio-8443-exec-9] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [URL [file:/C:/smspring/imgs/]]
+[2025-09-10 13:07:43:5352461][https-jsse-nio-8443-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+[2025-09-10 13:08:41:5410215][https-jsse-nio-8443-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/product/detail?id=1000", parameters={masked}
+[2025-09-10 13:08:41:5410215][https-jsse-nio-8443-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to edu.sm.controller.ProductController#detail(Model, int)
+[2025-09-10 13:08:41:5410265][https-jsse-nio-8443-exec-6] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+[2025-09-10 13:08:41:5410265][https-jsse-nio-8443-exec-6] DEBUG o.s.web.servlet.view.JstlView - View name [index], model {p=Product(productId=1000, productName=바지11, productPrice=10000, discountRate=1.0, productImg=face2.jpg, productRegdate=2025-09-09 13:34:38.0, productUpdate=2025-09-10 10:41:03.0, cateId=10, cateName=하의, productImgFile=null), left=product/left, center=product/detail, org.springframework.validation.BindingResult.p=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+[2025-09-10 13:08:41:5410265][https-jsse-nio-8443-exec-6] DEBUG o.s.web.servlet.view.JstlView - Forwarding to [/views/index.jsp]
+[2025-09-10 13:08:41:5410344][https-jsse-nio-8443-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+[2025-09-10 13:08:41:5410350][https-jsse-nio-8443-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/imgs/face2.jpg", parameters={}
+[2025-09-10 13:08:41:5410364][https-jsse-nio-8443-exec-3] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [URL [file:/C:/smspring/imgs/]]
+[2025-09-10 13:08:41:5410367][https-jsse-nio-8443-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
