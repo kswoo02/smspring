@@ -76,6 +76,7 @@ public class ProductController {
         model.addAttribute("p", product);
         model.addAttribute("left", dir+"left");
         model.addAttribute("center", dir+"detail");
+        log.info(product.getProductId()+","+product.getProductName());
         return "index";
     }
 }
