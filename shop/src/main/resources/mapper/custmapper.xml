@@ -14,7 +14,7 @@
                 and cust_regdate &gt;= #{startDate}
             </if>
             <if test="endDate != null and !endDate.equals('')">
-                and cust_regdate &lt;= #{endDate}
+                and cust_regdate &lt;= concat(#{endDate},":23:59:59")
             </if>
         </where>
     </select>
