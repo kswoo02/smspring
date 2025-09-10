@@ -64,6 +64,11 @@ public class ProductController {
         productService.modify(product);
         return "redirect:/product/detail?id="+product.getProductId();
     }
+    @RequestMapping("/delete")
+    public String delete(Model model, @RequestParam("id") int id) throws Exception {
+        productService.remove(id);
+        return "redirect:/product/get";
+    }
     @RequestMapping("/detail")
     public String detail(Model model, @RequestParam("id") int id) throws Exception {
         Product product = null;
