@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -30,7 +31,8 @@
         <c:forEach var="p" items="${plist}">
           <tr>
             <td><img src="/imgs/${p.productImg}"></td>
-            <td><a href="/product/detail?id=${p.productId}">${p.productId}</a></td>
+            <td><a href="<c:url value="/product/detail?id=${p.productId}"/> ">${p.productId}</a></td>
+
             <td>${p.productName}</td>
             <td><fmt:formatNumber type="number" pattern="###,###원" value="${p.productPrice}" /></td>
             <td>${p.discountRate}</td>
