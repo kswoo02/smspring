@@ -23,8 +23,6 @@ public class FileUploadUtil {
                     new FileOutputStream(dir+imgname);
             fo.write(data);
             fo.close();
-            System.out.println("----------------OK");
-
         }catch(Exception e) {
             e.printStackTrace();
             throw e;
