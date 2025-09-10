@@ -6,8 +6,17 @@
 
     <select id="searchCustList" parameterType="CustSearch" resultType="Cust">
         select * from cust
-        where cust_name like concat('%',#{custName},'%')
-          and cust_regdate between #{startDate} and #{endDate};
+        <where>
+            <if test="custName != null and !custName.equals('')">
+                cust_name like concat('%',#{custName},'%')
+            </if>
+            <if test="startDate != null and !startDate.equals('')">
+                and cust_regdate &gt;= #{startDate}
+            </if>
+            <if test="endDate != null and !endDate.equals('')">
+                and cust_regdate &lt;= #{endDate}
+            </if>
+        </where>
     </select>
     <select id="getpage" resultType="Cust">
         SELECT * FROM cust
