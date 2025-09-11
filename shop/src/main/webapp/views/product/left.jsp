@@ -12,6 +12,9 @@
     <li class="nav-item">
       <a class="nav-link" href="<c:url value="/product/searchpage"/>">getPage</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<c:url value="/product/pluspage"/>">plusPage</a>
+    </li>
   </ul>
   <hr class="d-sm-none">
 </div>

@@ -12,7 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import java.util.List;
 
 @Controller
@@ -24,12 +26,29 @@ public class ProductController {
 
     String dir="product/";
 
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        // StringTrimmerEditor는 들어오는 모든 String 데이터의 앞뒤 공백을 제거해줍니다.
+        // true를 주면, 공백만 있는 문자열의 경우 null로 바꿔줍니다.
+        // 예를 들어 "   " -> null
+        binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
+    }
+
     @RequestMapping("")
     public String main(Model model) {
         model.addAttribute("center",dir+"center");
         model.addAttribute("left",dir+"left");
         return "index";
     }
+
+    @RequestMapping("/pluspage")
+    public String plusPage(Model model) {
+        model.addAttribute("center",dir+"pluspage");
+        model.addAttribute("left",dir+"left");
+        return "index";
+    }
+
+
     @RequestMapping("/add")
     public String add(Model model) {
         model.addAttribute("center",dir+"add");
@@ -115,4 +134,5 @@ public class ProductController {
         log.info(product.getProductId()+","+product.getProductName());
         return "index";
     }
+
 }
