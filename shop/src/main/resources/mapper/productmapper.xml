@@ -3,7 +3,8 @@
         PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.sm.app.repository.ProductRepository">
-    <select id="searchProductList" parameterType="ProductSearch" resultType="Product">
+    <select id="searchProductList"
+            parameterType="ProductSearch" resultType="Product">
         select * from product p inner join cate c on p.cate_id = c.cate_id
         <where>
             <if test="productName != null and !productName.equals('')">
