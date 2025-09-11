@@ -2,7 +2,9 @@ package edu.sm.controller;
 
 import com.github.pagehelper.PageInfo;
 import edu.sm.app.dto.Cust;
+import edu.sm.app.dto.CustSearch;
 import edu.sm.app.dto.Product;
+import edu.sm.app.dto.ProductSearch;
 import edu.sm.app.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -59,6 +61,22 @@ public class ProductController {
         model.addAttribute("center", dir+"getpage");
         return "index";
     }
+    @RequestMapping("/search")
+    public String search(Model model, ProductSearch productSearch ) throws Exception {
+        List<Product> list = null;
+        list = productService.searchProductList(productSearch);
+
+        model.addAttribute("productName", productSearch.getProductName());
+        model.addAttribute("startPrice", productSearch.getStartPrice());
+        model.addAttribute("endPrice", productSearch.getEndPrice());
+
+        model.addAttribute("plist", list);
+        model.addAttribute("left", dir+"left");
+        model.addAttribute("center", dir+"get");
+
+        return "index";
+    }
+
     @RequestMapping("/updateimpl")
     public String updateimpl(Model model, Product product) throws Exception {
         productService.modify(product);

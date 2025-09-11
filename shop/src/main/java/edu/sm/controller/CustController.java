@@ -61,9 +61,14 @@ public class CustController {
         List<Cust> list = null;
         list = custService.searchCustList(custSearch);
 
+        model.addAttribute("custName", custSearch.getCustName());
+        model.addAttribute("startDate", custSearch.getStartDate());
+        model.addAttribute("endDate", custSearch.getEndDate());
+
         model.addAttribute("clist", list);
         model.addAttribute("left", dir+"left");
         model.addAttribute("center", dir+"get");
+
         return "index";
     }
     @RequestMapping("/getpage")
