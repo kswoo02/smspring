@@ -48,4 +48,8 @@ public class CustService implements SmService<Cust, String> {
         PageHelper.startPage(pageNo, 3); // 3: 한화면에 출력되는 개수
         return custRepository.getpage();
     }
+    public Page<Cust> getPageSearch(int pageNo, CustSearch custSearch) throws Exception {
+        PageHelper.startPage(pageNo, 3); // 3: 한화면에 출력되는 개수
+        return custRepository.getpageSearch(custSearch);
+    }
 }
