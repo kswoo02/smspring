@@ -21,6 +21,40 @@ import java.util.Random;
 @Slf4j
 public class ChartRestController {
 
+
+    @RequestMapping("/chart2_1")
+    public Object chart2_1() throws Exception {
+        //[[],[]]
+        JSONArray jsonArray = new JSONArray();
+        String [] nation = {"Kor","Eng","Jap","Chn","Usa"};
+        Random random = new Random();
+        for(int i=0;i<nation.length;i++){
+            JSONArray jsonArray1 = new JSONArray();
+            jsonArray1.add(nation[i]);
+            jsonArray1.add(random.nextInt(100)+1);
+            jsonArray.add(jsonArray1);
+        }
+        return jsonArray;
+    }
+    @RequestMapping("/chart2_2")
+    public Object chart2_2() throws Exception {
+        //{cate:[],data:[]}
+        JSONObject jsonObject = new JSONObject();
+        String arr [] = {"0-9", "10-19", "20-29", "30-39", "40-49", "50-59", "60-69", "70-79", "80-89", "90+"};
+        jsonObject.put("cate",arr);
+        Random random = new Random();
+        JSONArray jsonArray = new JSONArray();
+        for(int i=0;i<arr.length;i++){
+            jsonArray.add(random.nextInt(100)+1);
+        }
+        jsonObject.put("data",jsonArray);
+        return jsonObject;
+    }
+    @RequestMapping("/chart2_3")
+    public Object chart2_3() throws Exception {
+        // text
+        return "";
+    }
     @RequestMapping("/chart1")
     public Object chart1() throws Exception {
         // []
@@ -31,8 +65,8 @@ public class ChartRestController {
         JSONObject jsonObject2 = new JSONObject();
         JSONObject jsonObject3 = new JSONObject();
         jsonObject1.put("name","Korea");
-        jsonObject1.put("name","Japan");
-        jsonObject1.put("name","China");
+        jsonObject2.put("name","Japan");
+        jsonObject3.put("name","China");
         // []
         JSONArray data1Array = new JSONArray();
         JSONArray data2Array = new JSONArray();
