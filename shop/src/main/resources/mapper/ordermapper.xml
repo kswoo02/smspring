@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.sm.app.repository.OrderRepository">
+
+    <select id="findMonthlySales" resultType="edu.sm.app.dto.Order">
+        SELECT
+            CAST(AVG(order_price) AS SIGNED) AS orderId,      -- 평균값을 orderId 필드에 담음
+            DATE_FORMAT(order_date, '%Y-%m') AS customerId,   -- '월'을 customerId 필드에 담음
+            SUM(order_price)                 AS orderPrice,   -- 합계값을 orderPrice 필드에 담음
+            NULL                             AS orderDate     -- 이 필드는 사용하지 않으므로 NULL
+        FROM
+            orders
+        GROUP BY
+            customerId -- (실제로는 '월'로 그룹핑하는 것과 같음)
+        ORDER BY
+            customerId ASC
+    </select>
+
+</mapper>
