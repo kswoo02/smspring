@@ -1,5 +1,6 @@
 package edu.sm.controller;
 
+import com.opencsv.CSVReader;
 import edu.sm.app.dto.Content;
 import edu.sm.app.dto.Marker;
 import edu.sm.app.dto.Search;
@@ -8,10 +9,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -21,6 +25,8 @@ import java.util.Random;
 @Slf4j
 public class ChartRestController {
 
+    @Value("${app.dir.logsdirRead}")
+    String dir;
 
     @RequestMapping("/chart2_1")
     public Object chart2_1() throws Exception {
@@ -53,7 +59,15 @@ public class ChartRestController {
     @RequestMapping("/chart2_3")
     public Object chart2_3() throws Exception {
         // text
-        return "";
+        CSVReader reader =
+                new CSVReader(new InputStreamReader(new FileInputStream(dir+"click.log"), "UTF-8"));
+        String[] line;
+        //reader.readNext();  // 헤더 건너뜀
+        StringBuffer sb = new StringBuffer();
+        while ((line = reader.readNext()) != null) {
+            sb.append(line[2]+" ");
+        }
+        return sb.toString();
     }
     @RequestMapping("/chart1")
     public Object chart1() throws Exception {
