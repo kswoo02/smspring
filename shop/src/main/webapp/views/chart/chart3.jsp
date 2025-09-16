@@ -13,7 +13,6 @@
 <script>
   let chart3App = {
     init: function() {
-      // 페이지가 로드되면 두 차트의 데이터를 모두 불러옵니다.
       this.getData1();
       this.getData2();
     },
@@ -34,11 +33,9 @@
       })
     },
 
-    // 1번: 월별 매출 '합계' 차트 (막대 그래프)
     drawTotalChart: function(data) {
-      // [중요] Order DTO를 재활용했으므로, 필드 이름에 주의합니다.
-      const categories = data.map(d => d.customerId); // '월' 정보는 customerId 필드에 담겨있음
-      const seriesData = data.map(d => d.orderPrice); // '매출 합계'는 orderPrice 필드에 담겨있음
+      const categories = data.map(d => d.customerId);
+      const seriesData = data.map(d => d.orderPrice);
 
       Highcharts.chart('container1', {
         chart: { type: 'column' },
@@ -52,11 +49,9 @@
       });
     },
 
-    // 2번: 월별 매출 '평균' 차트 (라인 그래프)
     drawAvgChart: function(data) {
-      // [중요] Order DTO를 재활용했으므로, 필드 이름에 주의합니다.
-      const categories = data.map(d => d.customerId); // '월' 정보는 customerId 필드에 담겨있음
-      const seriesData = data.map(d => d.orderId);    // '매출 평균'은 orderId 필드에 담겨있음
+      const categories = data.map(d => d.customerId);
+      const seriesData = data.map(d => d.orderId);
 
       Highcharts.chart('container2', {
         chart: { type: 'line' },
@@ -71,7 +66,6 @@
     }
   }
 
-  // 페이지가 모두 로드되면 init 함수를 실행합니다.
   $(function() {
     chart3App.init();
   });

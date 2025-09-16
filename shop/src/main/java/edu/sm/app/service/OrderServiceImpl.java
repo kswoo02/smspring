@@ -15,7 +15,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
 
     @Override
-    public List<Order> getMonthlySales() { // [수정] 반환 타입을 List<Order>로 변경
+    public List<Order> getMonthlySales() {
         return orderRepository.findMonthlySales();
     }
 }

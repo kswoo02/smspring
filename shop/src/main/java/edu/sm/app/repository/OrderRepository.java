@@ -6,7 +6,6 @@ import java.util.List;
 @Mapper
 public interface OrderRepository {
 
-    List<Order> findAll();
     List<Order> findMonthlySales();
 
 }
