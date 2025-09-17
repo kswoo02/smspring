@@ -32,9 +32,16 @@ public class CustController {
         model.addAttribute("center",dir+"add");
         return "index";
     }
-
+    @RequestMapping("/addimpl")
+    public String addimpl(Model model, Cust cust) throws Exception {
+        cust.setCustPwd(bCryptPasswordEncoder.encode(cust.getCustPwd()));
+        cust.setCustAddr(standardPBEStringEncryptor.encrypt(cust.getCustAddr()));
+        custService.register(cust);
+        return "redirect:/cust/get";
+    }
     @RequestMapping("/get")
-    public String get(Model model) {
+    public String get(Model model) throws Exception {
+        model.addAttribute("clist",custService.get());
         model.addAttribute("center",dir+"get");
         return "index";
     }

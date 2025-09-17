@@ -3,8 +3,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <script>
+    const cust_add = {
+        init:function(){
+            $('#cust_add_btn').click(()=>{
+                this.send();
+            });
+        },
+        send:function(){
+            $('#cust_add_form').attr('method','post');
+            $('#cust_add_form').attr('action','<c:url value="/cust/addimpl"/>');
+            $('#cust_add_form').submit();
+        }
+    }
     $(function(){
-
+        cust_add.init();
     });
 </script>
 
