@@ -23,11 +23,13 @@ mybatis:
   mapper-locations: classpath:/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
 logging:
   level:
     root: info
 
 # Application Config
+# @Value("${}")
 app:
   dir:
     imgsdir: file:///C:/smspring/imgs/     # 화면 출력 용
