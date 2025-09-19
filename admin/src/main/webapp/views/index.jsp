@@ -449,7 +449,7 @@
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.admin.role.roleName}</span>
                             </li>
                             <li class="nav-item dropdown no-arrow">
-                                <a href="<c:url value="/logout"/>" role="button"
+                                <a href="<c:url value="/logoutImpl"/>" role="button"
                                    aria-haspopup="true" aria-expanded="false">LOGOUT</a>
                             </li>
                         </c:otherwise>
