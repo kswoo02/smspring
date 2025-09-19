@@ -1,3 +1,4 @@
+
 package edu.sm.app.dto;
 
 import lombok.*;
@@ -9,7 +10,7 @@ import lombok.*;
 @Builder
 public class ProductSearch {
     String productName;
-    int startPrice;
-    int endPrice;
-    int cateId;
+    Integer startPrice;
+    Integer endPrice;
+    Integer cateId;
 }
