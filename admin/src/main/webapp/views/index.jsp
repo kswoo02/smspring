@@ -51,6 +51,7 @@
 
     <script>
         let index = {
+            type:'#',
             init:function(){
                 $('#login_form > button').click(()=>{
                     // let id = $('#id').val();
@@ -61,6 +62,37 @@
                     });
                     $('#login_form').submit();
                 });
+                $('#cust_search_form > button').click(()=>{
+                    $('#cust_search_form').attr('method','get');
+                    $('#cust_search_form').attr('action','<c:url value="/custsearch"/>');
+                    $('#cust_search_form').submit();
+                });
+                $('#product_search_form > button').click(()=>{
+                    $('#product_search_form').attr('method','get');
+                    $('#product_search_form').attr('action','<c:url value="/productsearch"/>');
+                    $('#product_search_form').submit();
+                });
+
+                $('#sel1').change(()=>{
+                    this.type = $('#sel1').val();
+                    this.display();
+                });
+                $('#cust_search_form').hide();
+                $('#product_search_form').hide();
+            },
+            display:function(){
+
+                if(this.type == 'c'){
+                    $('#product_search_form').hide();
+                    $('#cust_search_form').show();
+
+                }else if(this.type == 'p'){
+                    $('#cust_search_form').hide();
+                    $('#product_search_form').show();
+                }else{
+                    $('#cust_search_form').hide();
+                    $('#product_search_form').hide();
+                }
             }
         };
         $(function(){
@@ -183,20 +215,42 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
+                    <form class="form-inline" >
+                        <div class="form-group">
+                            <label for="sel1" class="form-control mb-2 mr-sm-2">검생대상 선택</label>
+                            <select class="form-control mb-2 mr-sm-2" id="sel1">
+                                <option value="#">Select</option>
+                                <option value="c">Cust</option>
+                                <option value="p">Product</option>
+                            </select>
                         </div>
                     </form>
+                    <form class="form-inline" id="cust_search_form">
 
+                        <div class="form-group" id="sa1">
+                            <input type="text" name="custName" class="form-control mb-2 mr-sm-2" placeholder="Input Name .." id="txt">
+                            <input type="date" name="startDate" class="form-control mb-2 mr-sm-2" id="sdate">
+                            <input type="date" name="endDate" class="form-control mb-2 mr-sm-2" id="edate">
+                        </div>
+                        <button type="button" class="btn btn-primary mb-2">Search</button>
+                    </form>
+                    <form class="form-inline" id="product_search_form">
+
+                        <div class="form-group" id="sa2">
+                            <input type="text" name="productName" class="form-control mb-2 mr-sm-2" placeholder="Input Name .." id="txt">
+                            <input type="number" name="startPrice" class="form-control mb-2 mr-sm-2" id="sprice" min="0" step="5000" placeholder="Input Start Price ..">
+                            <input type="number" name="endPrice" class="form-control mb-2 mr-sm-2" id="sprice" min="0" step="5000" placeholder="Input End Price ..">
+                            <select class="form-control mb-2 mr-sm-2" id="sel1" name="cateId">
+                                <option value="10">상의</option>
+                                <option value="20">하의</option>
+                                <option value="30">신발</option>
+                                <option value="40">가방</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary mb-2">Search</button>
+                    </form>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
