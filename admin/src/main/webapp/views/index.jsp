@@ -215,7 +215,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class=" navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -224,7 +224,7 @@
 
 
                     <!-- Topbar Search -->
-                    <form class="form-inline" >
+                    <form class="form-inline d-none d-sm-block" >
                         <div class="form-group">
                             <label for="sel1" class="form-control mb-2 mr-sm-2">검생대상 선택</label>
                             <select class="form-control mb-2 mr-sm-2" id="sel1">
@@ -234,7 +234,7 @@
                             </select>
                         </div>
                     </form>
-                    <form class="form-inline" id="cust_search_form">
+                    <form class="form-inline " id="cust_search_form">
 
                         <div class="form-group" id="sa1">
                             <input type="text" name="custName" class="form-control mb-2 mr-sm-2" placeholder="Input Name .." id="txt"
@@ -428,7 +428,10 @@
 
                         <c:choose>
                             <c:when test="${sessionScope.admin == null}">
-                                <a href="#" data-toggle="modal" data-target="#loginModal">login</a>
+                                <form class="form-inline">
+                                    <a href="#" data-toggle="modal" data-target="#loginModal"
+                                       class="btn btn-warning mb-2 mr-sm-2 " role="button">LOGIN</a>
+                                </form>
                             </c:when>
                             <c:otherwise>
                                 <li class="nav-item dropdown no-arrow">
