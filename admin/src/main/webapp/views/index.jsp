@@ -53,6 +53,10 @@
         let index = {
             type:'#',
             init:function(){
+
+                if('${loginfail}' == 'fail'){
+                    $('#loginModal').modal('show');
+                }
                 $('#login_form > button').click(()=>{
                     // let id = $('#id').val();
                     // let pwd = $('#id').val();
@@ -437,7 +441,7 @@
                                 <li class="nav-item dropdown no-arrow">
                                     <a class="nav-link dropdown-toggle" href="#" role="button"
                                         aria-haspopup="true" aria-expanded="false">
-                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.admin.id}</span>
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.admin.adminId}</span>
                                         <img class="img-profile rounded-circle"
                                              src="<c:url value="/img/undraw_profile.svg"/>">
 
@@ -446,10 +450,10 @@
                                     <!-- Dropdown - User Information -->
                                 </li>
                                 <li class="nav-item dropdown no-arrow">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.admin.role.roleName}</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.admin.adminRole}</span>
                                 </li>
                                 <li class="nav-item dropdown no-arrow">
-                                    <a href="<c:url value="/logout"/>" role="button"
+                                    <a href="<c:url value="/logoutimpl"/>" role="button"
                                        aria-haspopup="true" aria-expanded="false">LOGOUT</a>
                                 </li>
                             </c:otherwise>
@@ -503,7 +507,16 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="loginModalLabel">
+                        <c:choose>
+                            <c:when test="${msg != null}">
+                                Login Fail .. Try again !
+                            </c:when>
+                            <c:otherwise>
+                                Login
+                            </c:otherwise>
+                        </c:choose>
+                    </h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -545,7 +558,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Lgout</a>
+                    <a class="btn btn-primary" href="<c:url value="/logout"/>">Lgout</a>
                 </div>
             </div>
         </div>
