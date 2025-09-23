@@ -33,7 +33,11 @@ public class MainRestController {
     public Object getwt1(@RequestParam("loc") String loc) throws IOException, ParseException {
         return WeatherUtil.getWeather(loc,wkey);
     }
-
+    @RequestMapping("/savedata")
+    public Object savedata(@RequestParam("data") String data) throws IOException {
+        log.info(data);
+        return "OK";
+    }
 
     @RequestMapping("/saveaudio")
     public Object saveaudio(@RequestParam("file") MultipartFile file) throws IOException {
