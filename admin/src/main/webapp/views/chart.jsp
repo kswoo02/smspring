@@ -10,7 +10,8 @@
 </style>
 <script>
     let chart={
-        url:'http://127.0.0.1:8088/logs/maininfo.log',
+        url:'https://127.0.0.1:8443/logs/maininfo.log',
+        // url:'http://127.0.0.1:8088/logs/maininfo.log',
         // url:'https://demo-live-data.highcharts.com/time-data.csv',
         init:function(){
             this.createChart();
