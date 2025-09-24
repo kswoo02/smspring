@@ -4,24 +4,46 @@
 
 <script>
     let center = {
+        adminId:null,
         init:function(){
-            this.connect();
+            <c:if test="${sessionScope.admin.adminId != null}">
+                this.adminId = '${sessionScope.admin.adminId}';
+                this.connect();
+            </c:if>
         },
         connect:function(){
             // http://127.0.0.1:8088/connect/admin
-            let url = '${sseUrl}'+'connect/admin' ;
+            let url = '${sseUrl}'+'connect/'+this.adminId ;
             const sse = new EventSource(url);
             sse.addEventListener('connect', (e) => {
                 const { data: receivedConnectData } = e;
                 console.log('connect event data: ',receivedConnectData);  // "connected!"
             });
-
+            sse.addEventListener('count', e => {
+                const { data: receivedCount } = e;
+                console.log("count :",receivedCount);
+                $('#count').html(receivedCount);
+            });
             sse.addEventListener('adminmsg', e => {
                 const { data: receivedData } = e;
                 console.log("count event data",receivedData);
                 console.log("count event data2",JSON.parse(receivedData).content1);
-                //this.display(JSON.parse(receivedData));
+                this.display(JSON.parse(receivedData));
             });
+        },
+        display:function(data){
+            $('#msg1').text(data.content1);
+            $('#msg2').text(data.content2);
+            $('#msg3').text(data.content3);
+            $('#msg4').text(data.content4);
+            $('#progress1').css('width',data.content1/100*100+'%');
+            $('#progress1').attr('aria-valuenow',data.content1/100*100);
+            $('#progress2').css('width',data.content2/1000*100+'%');
+            $('#progress2').attr('aria-valuenow',data.content2/1000*100);
+            $('#progress3').css('width',data.content3/500*100+'%');
+            $('#progress3').attr('aria-valuenow',data.content3/500*100);
+            $('#progress4').css('width',data.content4/10*100+'%');
+            $('#progress4').attr('aria-valuenow',data.content4/10*100);
         }
     };
 
@@ -36,7 +58,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard <span id="count"></span></h1>
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
     </div>
@@ -52,7 +74,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Earnings (Monthly)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                            <div id="count" class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
