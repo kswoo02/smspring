@@ -131,32 +131,42 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="<c:url value="/"/>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-           <!-- Menu -->
-            <li class="nav-item active">
-                <a class="nav-link" href="<c:url value="/websocket" />">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Web Socket</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="<c:url value="/chat" />">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>chat</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="<c:url value="/chart" />">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>chart</span></a>
-            </li>
+            <c:if test="${sessionScope.admin != null}">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="<c:url value="/"/>">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+               <!-- Menu -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="<c:url value="/websocket" />">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Web Socket</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="<c:url value="/chat" />">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>chat</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="<c:url value="/chart" />">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>chart</span></a>
+                </li>
 
+                <c:if test="${sessionScope.admin.adminRole == 'super'}">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<c:url value="/chart" />">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>admin</span></a>
+                    </li>
+                </c:if>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+            </c:if>
             <!-- Heading -->
             <div class="sidebar-heading">
                 Admin Menu
@@ -444,8 +454,6 @@
                                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">${sessionScope.admin.adminId}</span>
                                         <img class="img-profile rounded-circle"
                                              src="<c:url value="/img/undraw_profile.svg"/>">
-
-
                                     </a>
                                     <!-- Dropdown - User Information -->
                                 </li>
@@ -510,7 +518,7 @@
                     <h5 class="modal-title" id="loginModalLabel">
                         <c:choose>
                             <c:when test="${msg != null}">
-                                Login Fail .. Try again !
+                                ${msg} .. Try again !
                             </c:when>
                             <c:otherwise>
                                 Login
