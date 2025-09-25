@@ -14,6 +14,7 @@
         connect:function(){
             // http://127.0.0.1:8088/connect/admin
             let url = '${sseUrl}'+'connect/'+this.adminId ;
+
             const sse = new EventSource(url);
             sse.addEventListener('connect', (e) => {
                 const { data: receivedConnectData } = e;
