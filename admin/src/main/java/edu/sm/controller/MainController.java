@@ -40,10 +40,10 @@ public class MainController {
         model.addAttribute("center","chat");
         return "index";
     }
-
-    @RequestMapping("/inquiry")
-    public String inquiry(Model model) {
-        model.addAttribute("center","inquiry");
+    @RequestMapping("/websocket")
+    public String websocket(Model model) {
+        model.addAttribute("websocketurl",wsUrl);
+        model.addAttribute("center","websocket");
         return "index";
     }
 

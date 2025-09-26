@@ -39,7 +39,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     testImplementation 'org.springframework.security:spring-security-test'
 
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-websocket' // 이 라인이 있는지 확인!
 
+    }
     // logback
     implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
     //tomcat
