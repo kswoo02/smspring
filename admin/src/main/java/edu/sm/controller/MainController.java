@@ -41,4 +41,10 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/inquiry")
+    public String inquiry(Model model) {
+        model.addAttribute("center","inquiry");
+        return "index";
+    }
+
 }

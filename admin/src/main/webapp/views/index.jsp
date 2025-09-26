@@ -159,7 +159,6 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>chart</span></a>
             </li>
-
             <c:if test="${sessionScope.admin.adminRole == 'super'}">
                 <li class="nav-item active">
                     <a class="nav-link" href="<c:url value="/chart" />">
@@ -167,6 +166,11 @@
                         <span>admin</span></a>
                 </li>
             </c:if>
+            <li class="nav-item active">
+                <a class="nav-link" href="<c:url value="/inquiry" />">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Inquiry</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
